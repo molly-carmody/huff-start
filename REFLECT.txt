@@ -5,6 +5,7 @@ Consulted With: provide names or NetIDs of any students, TAs, or professors you 
 Resources Used: Any books, papers, or online resources. If you did not use any outside resources, you must explicitly write NONE 
 Impressions: Your answer here
 ----------------------------------------------------------------------
-Problem 1: Benchmark and analyze your code
-Problem 2: Text vs. Binary 
-Problem 3: Compressing compressed files
+Problem 1: Describe testing
+Problem 2: Benchmark and analyze your code
+Problem 3: Text vs. Binary 
+Problem 4: Compressing compressed files
