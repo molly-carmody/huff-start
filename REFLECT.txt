@@ -1,11 +1,54 @@
-Name: firstname lastname
-NetID: abc123
-Hours Spent: Give an exact (decimal) number here
-Consulted With: provide names or NetIDs of any students, TAs, or professors you consulted with on the assignment. If you did not consult with anyone, you must explicitly write NONE.
-Resources Used: Any books, papers, or online resources. If you did not use any outside resources, you must explicitly write NONE 
-Impressions: Your answer here
+Name: Molly Carmody, partners with Matt Brecher
+NetID: mkc35
+Hours Spent: 7.5 hrs
+Consulted With: Matt Brecher
+Resources Used: NONE
+Impressions: I didn't like the assignment that much. I felt like it wasn't discussed enough 
+in class in detail. So, I understand the general task of what had to be done, but not the more
+in depth of how to code it and work with bits. 
 ----------------------------------------------------------------------
-Problem 1: Describe testing
+Problem 1: Describe testing:
+In order to test our code, we used a file called melville.txt.correct, which we knew to be a correct compressed version
+of melville.txt. We then compressed melville using our program and compared it to this verified correct
+version to check that the files were the same, and thus our program worked. Also, to check that our
+decompressed method checked if a file had a valid huff number, we used a blank text and saw that the program
+did not indeed proceed when given a completely blank file, which is what we wanted/expected it to do. In general,
+we also used to the HuffMain class and its GUI to verify that the decompressed then compressed file matched the original
+file. We did this also for the files provided that had different lengths. So, for instance, 
+we used the hidden1.txt.hf and hidden2.txt.hf, decompressed them, compressed them, and then 
+compared to see that they were the same as hidden1.txt and hidden2.txt. We did this with all the available files.
+We also decompressed and compressed the BlueDevil.png, which successfully worked. 
+
 Problem 2: Benchmark and analyze your code
+***see the screenshots of data tables and graphs for reference and empircal data***
+
+Based on our data, it is clear that there is not an obvious relationship between alphabet size and time. For example,
+when the alphabet size is 81 for bib.txt, the time is .044sec. When the alphabet size is 256 for geo.txt, the time is .007sec.
+However, it is also .003sec when the alphabet size is only 95 for paper1.txt. Therefore, there is not a clear relationship 
+between alphabet size and time from our data. Also, there is no significant/clear relationship between alphabet size and compression rate.
+For example, the compression rate was 37.01% for both a alphabet size of 256 (obj2.txt) and an alphabet size of 95 (paper1.txt). 
+
+From our empirical data, there does appear a relationship between file size and time. The greater the file size, the longer
+it takes. For instance, for a file size of 262274 bytes for barb.tif, it takes .025 secs, while for a 
+file size of 2149096 bytes for clegg.tif, it takes .139 secs. Thus, there is a consistent positive relationship
+between the two. This is most likely due to the fact that the greater the file size, the more there is to process and thus the more time it takes. 
+However, there is no obvious/clear relationship between file size and compression rate. Even when the file size was increasing,
+there was not necessarily a direct increase in compression rate. For example, when the file size was 3706306 bytes for frymire.tif, 
+the compression rate was 27.06%, and when it was 65666 bytes for goldhill.tif, it was 26.87%, but was 26.71% when it was 
+262274 bytes for mandrill.tif. Therefore, we could not see the effect of file size on compression rate. 
+
+
+
 Problem 3: Text vs. Binary 
+When comparing the Calgary versus Waterloo files, we found that the text files compressed more than the binary files.
+For example, overall, the calgary directory (text files) had a rate of 43.76%, while waterloo directory (binary files) 
+had a compression rate of 20.97%. This makes sense because for text files, there are only the ASCII characters
+that can occur and add to the HuffTree and be in the alphabet, whereas for an image, each pixel has an r, g, b
+value that is between 0 and 256 and thus there are more possible 'characters' leading to larger alphabets and 
+lower compression rates (both of which were observed in the data).
+
 Problem 4: Compressing compressed files
+Every time we compress a file, it adds a header. So, for example, for small files, the numbers of bytes increases
+after recompressing because of the added header, as such for small text files like hidden1 and hidden2. For larger files,
+there is a slight/insignificant amount of further compression that can be achieved. However, in general, recompressing the
+file can be considered relatively ineffective/pointless. 
