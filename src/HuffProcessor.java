@@ -24,8 +24,8 @@ public class HuffProcessor {
 
 	public enum Header{TREE_HEADER, COUNT_HEADER};
 	public Header myHeader = Header.TREE_HEADER;
-	public String[] codings;
-	public int[] ret;
+	private String[] codings;
+	private int[] ret;
 
 
 	/**
