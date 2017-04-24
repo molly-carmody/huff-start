@@ -51,10 +51,6 @@ public class HuffProcessor {
 		}
 		in.reset();
 
-
-
-
-
 		//perform the various methods below (as described in the respective method's section)
 		HuffNode root = makeTreeFromCounts(ret);
 		codings = new String[257];
@@ -91,7 +87,7 @@ public class HuffProcessor {
 	}
 
 	//creates a Hufftree based on the ret frequency counts
-	public HuffNode makeTreeFromCounts(int [] a){
+	private HuffNode makeTreeFromCounts(int [] a){
 		if(a == null){ //checks input
 			throw new NullPointerException("no string array");
 		}
@@ -120,7 +116,7 @@ public class HuffProcessor {
 
 	}
 
-	public void makeCodingsFromTree(HuffNode hu, String path){
+	private void makeCodingsFromTree(HuffNode hu, String path){
 		if(path == null){ //checks input
 			throw new NullPointerException("path is null");
 		}
@@ -138,8 +134,7 @@ public class HuffProcessor {
 		makeCodingsFromTree(hu.right(),path +"1");
 	}
 
-	//
-	public void writeHeader(HuffNode root, BitOutputStream out){
+	private void writeHeader(HuffNode root, BitOutputStream out){
 		if(out == null){ //checks input
 			throw new NullPointerException("null out stream");}
 		if(root == null){ //checks input
@@ -156,7 +151,7 @@ public class HuffProcessor {
 		}
 	}
 	//finds the encoding and write's the encoding as a bit-sequence
-	public void writeCompressedBits(BitInputStream in, String[] encodings, BitOutputStream out){
+	private void writeCompressedBits(BitInputStream in, String[] encodings, BitOutputStream out){
 		if(in == null||out == null){ //checks input
 			throw new NullPointerException("null in or out stream");}
 		if(encodings == null){ //checks input
@@ -176,7 +171,7 @@ public class HuffProcessor {
 	}
 
 	//returns a HuffNode that's the root of the Huffman tree used for decompressing a file
-	public HuffNode readTreeHeader(BitInputStream in){
+	private HuffNode readTreeHeader(BitInputStream in){
 		if(in == null){//checks input
 			throw new NullPointerException("null in stream");}
 		
@@ -192,7 +187,7 @@ public class HuffProcessor {
 		}
 	}
 	//goes through and reads the compressed data 
-	public void readCompressedBits(BitInputStream in, BitOutputStream out, HuffNode Hu){
+	private void readCompressedBits(BitInputStream in, BitOutputStream out, HuffNode Hu){
 		if(in ==null||out==null){ //checks input
 			throw new NullPointerException("null in or out stream");
 		}
